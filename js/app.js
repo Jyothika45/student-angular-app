@@ -11,18 +11,17 @@ app.controller("dashboardController", function($scope){
     $scope.department = "Computer Science";
     $scope.email = "jyothika@example.com";
     $scope.phone = "1234567890";
+    $scope.showstudent = false;
+
     console.log("dashboardController is loaded");
-
-$scope.students = [
-    "Alice", "Appu", "Ammu", "Kuttu"
-];
-
+ 
+    $scope.students = [
+        "Alice", "Appu", "Ammu", "Kuttu"
+    ];
 
     $scope.addStudent = function() {
-        $scope.totsud++;
-
-
+        $scope.totstud++;
+        $scope.showstudent = true;
     };
 
-
-});
+});                                                                                         

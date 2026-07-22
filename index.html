@@ -2,20 +2,26 @@
 <html ng-app="campus360">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>Student Registration Form</title>
 </head>
+
 <body ng-controller="dashboardController">
 
     <h2>{{collegename}}</h2>
     <input type="text" ng-model="collegename">
-    <p>Total Student: <b>{{totstud}}</b></p>
+    <p ng-class="
+    {'green':totstud > 50,'red':totstud <= 50}">Total Student: <b>{{totstud}}</b></p>
     <input type="text" ng-model="totstud">
     <button ng-click="totstud = totstud + 1">Add Student</button>
 
 
-    <p>Total Faculty: <b>{{totfac}}</b></p>
+<p style="color:blue; font-size:20px; font-weight:bold;">
+    Total Faculty: <b>{{totfac}}</b>
+</p>
     <input type="text" ng-model="totfac">
 
 
@@ -34,12 +40,23 @@
     <p>Phone Number:<b>{{phone}}</b></p>
     <input type="text" ng-model="phone">
 
-<h1>Student List</h1>
-<ul>
-    <li ng-repeat="student in students">
-        {{student}}
-    </li>
-</ul>
+    <h1>Student List</h1>
+    <button ng-click="showstudent = !showstudent"> Student List</button>
+
+    <ul ng-show="showstudent">
+        <li ng-repeat="student in students">
+            {{student}}
+        </li>
+    </ul>
+
+
+
+
+
+
+
+    
+
 
 
 </body>

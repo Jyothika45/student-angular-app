@@ -1,0 +1,12 @@
+.blue{
+    color: rgb(49, 157, 203);
+    font-weight: bold;
+}
+.red{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+.green{
+    color: rgb(0, 128, 0);
+    font-weight: bold;
+}
