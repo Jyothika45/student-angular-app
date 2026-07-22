@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="campus360">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,35 +14,36 @@
 
     <h2>{{collegename}}</h2>
     <input type="text" ng-model="collegename">
-    <p ng-class="
-    {'green':totstud > 50,'red':totstud <= 50}">Total Student: <b>{{totstud}}</b></p>
-    <input type="text" ng-model="totstud">
-    <button ng-click="totstud = totstud + 1">Add Student</button>
 
+    <p ng-class="{'green': totstud > 50, 'red': totstud <= 50}">
+        Total Student: <b>{{totstud}}</b>
+    </p>
 
-<p style="color:blue; font-size:20px; font-weight:bold;">
-    Total Faculty: <b>{{totfac}}</b>
-</p>
-    <input type="text" ng-model="totfac">
+    <input type="number" ng-model="totstud">
+    <button ng-click="addStudent()">Add Student</button>
 
+    <p style="color: blue; font-size:20px; font-weight:bold;">
+        Total Faculty: <b>{{totfac}}</b>
+    </p>
 
-    <p>Name:<b>{{name}}</b></p>
+    <input type="number" ng-model="totfac">
+
+    <p>Name: <b>{{name}}</b></p>
     <input type="text" ng-model="name">
 
-
-    <p>Department:<b>{{department}}</b></p>
+    <p>Department: <b>{{department}}</b></p>
     <input type="text" ng-model="department">
 
+    <p>Email: <b>{{email}}</b></p>
+    <input type="email" ng-model="email">
 
-    <p>Email:<b>{{email}}</b></p>
-    <input type="text" ng-model="email">
-
-
-    <p>Phone Number:<b>{{phone}}</b></p>
+    <p>Phone Number: <b>{{phone}}</b></p>
     <input type="text" ng-model="phone">
 
-    <h1>Student List</h1>
-    <button ng-click="showstudent = !showstudent"> Student List</button>
+    <hr>
+
+    <h2>Student List</h2>
+    <button ng-click="showstudent = !showstudent">Student List</button>
 
     <ul ng-show="showstudent">
         <li ng-repeat="student in students">
@@ -49,15 +51,101 @@
         </li>
     </ul>
 
+    <hr>
+
+    <h2>Filter Demo</h2>
+
+    <p>Uppercase: {{collegename | uppercase}}</p>
+
+    <p>Lowercase: {{collegename | lowercase}}</p>
+
+    <p>Currency: {{fees | currency}}</p>
+
+    <p>Date: {{today | date:'dd/MM/yyyy'}}</p>
+
+    <p>Number: {{fees | number:2}}</p>
+
+    <hr>
+    <h2>Selected Departments</h>
+     <label >Select Departments:</label>   
+     <br><br>
+     <select ng-model="selectedDepartment" ng-options="department for department in departments">
+        <option value="">-- Select Department --</option>
+    </select>
+
+   <p>Selected Department: <b>{{selectedDepartment}}</b></>
+
+<hr>
+
+<h2>Department Information</h2>
+
+<label>Select Department:</label>
+<br><br>
+
+<select ng-model="selectedDepartment">
+    <option value="">-- Select Department --</option>
+    <option ng-repeat="department in departments" value="{{department}}">
+        {{department}}
+    </option>
+</select>
+
+<p><b>Selected Department:</b> {{selectedDepartment}}</p>
+
+<hr>
+
+<div ng-switch="selectedDepartment">
+
+    <div ng-switch-when="CSE">
+        <h3>Computer Science and Engineering</h3>
+        <p><b>HOD:</b> Dr. Anil</p>
+        <p><b>Total Students:</b> 120</p>
+    </div>
+
+    <div ng-switch-when="ECE">
+        <h3>Electronics and Communication Engineering</h3>
+        <p><b>HOD:</b> Dr. Meera</p>
+        <p><b>Total Students:</b> 95</p>
+    </div>
+
+    <div ng-switch-when="EEE">
+        <h3>Electrical and Electronics Engineering</h3>
+        <p><b>HOD:</b> Dr. Rahul</p>
+        <p><b>Total Students:</b> 80</p>
+    </div>
+
+    <div ng-switch-when="MECH">
+        <h3>Mechanical Engineering</h3>
+        <p><b>HOD:</b> Dr. Arjun</p>
+        <p><b>Total Students:</b> 100</p>
+    </div>
+
+    <div ng-switch-when="CIVIL">
+        <h3>Civil Engineering</h3>
+        <p><b>HOD:</b> Dr. Sneha</p>
+        <p><b>Total Students:</b> 70</p>
+    </div>
+
+    <div ng-switch-when="MCA">
+        <h3>Master of Computer Applications</h3>
+        <p><b>HOD:</b> Dr. Priya</p>
+        <p><b>Total Students:</b> 60</p>
+    </div>
+
+    <div ng-switch-default>
+        <p>Please select a department.</p>
+    </div>
+
+</div>
 
 
 
 
 
 
-    
+
 
 
 
 </body>
+
 </html>
