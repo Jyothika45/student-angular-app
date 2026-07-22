@@ -92,43 +92,30 @@
 <p><b>Selected Department:</b> {{selectedDepartment}}</p>
 
 <hr>
-
 <div ng-switch="selectedDepartment">
 
     <div ng-switch-when="CSE">
-        <h3>Computer Science and Engineering</h3>
-        <p><b>HOD:</b> Dr. Anil</p>
-        <p><b>Total Students:</b> 120</p>
+        <p>Computer Science and Engineering</p>
     </div>
 
     <div ng-switch-when="ECE">
-        <h3>Electronics and Communication Engineering</h3>
-        <p><b>HOD:</b> Dr. Meera</p>
-        <p><b>Total Students:</b> 95</p>
+        <p>Electronics and Communication Engineering</p>
     </div>
 
     <div ng-switch-when="EEE">
-        <h3>Electrical and Electronics Engineering</h3>
-        <p><b>HOD:</b> Dr. Rahul</p>
-        <p><b>Total Students:</b> 80</p>
+        <p>Electrical and Electronics Engineering</p>
     </div>
 
     <div ng-switch-when="MECH">
-        <h3>Mechanical Engineering</h3>
-        <p><b>HOD:</b> Dr. Arjun</p>
-        <p><b>Total Students:</b> 100</p>
+        <p>Mechanical Engineering</p>
     </div>
 
     <div ng-switch-when="CIVIL">
-        <h3>Civil Engineering</h3>
-        <p><b>HOD:</b> Dr. Sneha</p>
-        <p><b>Total Students:</b> 70</p>
+        <p>Civil Engineering</p>
     </div>
 
     <div ng-switch-when="MCA">
-        <h3>Master of Computer Applications</h3>
-        <p><b>HOD:</b> Dr. Priya</p>
-        <p><b>Total Students:</b> 60</p>
+        <p>Master of Computer Applications</p>
     </div>
 
     <div ng-switch-default>
@@ -137,6 +124,14 @@
 
 </div>
 
+<hr>
+
+<h2>ng-init Demo</h2>
+
+<div ng-init="collegecode='fisat123'; location='Angamaly'">
+    <p>College Code: {{collegecode}}</p>
+    <p>Location: {{location}}</p>
+</div>
 
 
 
