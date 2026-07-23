@@ -43,6 +43,7 @@
     <hr>
 
     <h2>Student List</h2>
+
     <button ng-click="showstudent = !showstudent">
         Student List
     </button>
@@ -57,25 +58,27 @@
 
     <h2>Filter Demo</h2>
 
-    <p>Uppercase: {{collegename | uppercase}}</p>
-    <p>Lowercase: {{collegename | lowercase}}</p>
-    <p>Currency: {{fees | currency}}</p>
-    <p>Date: {{today | date:'dd/MM/yyyy'}}</p>
-    <p>Number: {{fees | number:2}}</p>
+    <p>Uppercase : {{collegename | uppercase}}</p>
+    <p>Lowercase : {{collegename | lowercase}}</p>
+    <p>Currency : {{fees | currency}}</p>
+    <p>Date : {{today | date:'dd/MM/yyyy'}}</p>
+    <p>Number : {{fees | number:2}}</p>
 
     <hr>
 
     <h2>Selected Departments</h2>
 
     <label>Select Department:</label>
+
     <br><br>
 
     <select ng-model="selectedDepartment"
-            ng-options="department for department in departments">
+        ng-options="department for department in departments">
         <option value="">-- Select Department --</option>
     </select>
 
-    <p>Selected Department:
+    <p>
+        Selected Department :
         <b>{{selectedDepartment}}</b>
     </p>
 
@@ -84,16 +87,20 @@
     <h2>Department Information</h2>
 
     <label>Select Department:</label>
+
     <br><br>
 
     <select ng-model="selectedDepartment">
+
         <option value="">-- Select Department --</option>
+
         <option ng-repeat="department in departments" value="{{department}}">
             {{department}}
         </option>
+
     </select>
 
-    <p><b>Selected Department:</b> {{selectedDepartment}}</p>
+    <p><b>Selected Department :</b> {{selectedDepartment}}</p>
 
     <hr>
 
@@ -134,8 +141,10 @@
     <h2>ng-init Demo</h2>
 
     <div ng-init="collegecode='fisat123'; location='Angamaly'">
-        <p>College Code: {{collegecode}}</p>
-        <p>Location: {{location}}</p>
+
+        <p>College Code : {{collegecode}}</p>
+        <p>Location : {{location}}</p>
+
     </div>
 
     <hr>
@@ -152,30 +161,159 @@
         Take Admission
     </button>
 
-<hr>
+    <hr>
 
     <h2>ng-readonly Demo</h2>
 
-   <label>college id</label>
-   <br><br>
+    <label>College ID</label>
 
-<input type="text" ng-model="collegeid" ng-readonly="isReadOnly">
-   <br><br>
-   <button ng-click="toggleReadOnly()">
+    <br><br>
+
+    <input type="text"
+        ng-model="collegeid"
+        ng-readonly="isReadOnly">
+
+    <br><br>
+
+    <button ng-click="toggleReadOnly()">
         Toggle Readonly
     </button>
-    <p>readonly status: {{isReadOnly}}</p>
 
+    <p>Readonly Status : {{isReadOnly}}</p>
 
+    <hr>
 
+    <h2>Student Registration</h2>
 
+    <form name="studentForm" novalidate>
 
+        <label>Student Name:</label>
 
+        <br>
 
+        <input
+            type="text"
+            name="studentName"
+            ng-model="student.name"
+            required>
 
+        <br><br>
 
+        <label>Student Email:</label>
 
+        <br>
 
+        <input
+            type="email"
+            name="studentEmail"
+            ng-model="student.email"
+            required>
+
+        <br><br>
+
+        <label>Student Phone:</label>
+
+        <br>
+
+        <input
+            type="number"
+            name="studentPhone"
+            ng-model="student.phone"
+            required>
+
+        <br><br>
+
+        <label>Student Age:</label>
+
+        <br>
+
+        <input
+            type="number"
+            name="studentAge"
+            ng-model="student.age"
+            required>
+
+        <br><br>
+
+        <label>Student Department:</label>
+
+        <br>
+
+        <select
+            name="studentDepartment"
+            ng-model="student.department"
+            required>
+
+            <option value="">-- Select Department --</option>
+
+            <option
+                ng-repeat="department in departments"
+                value="{{department}}">
+
+                {{department}}
+
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <label>Gender:</label>
+
+        <br>
+
+        <input
+            type="radio"
+            name="studentGender"
+            ng-model="student.gender"
+            value="Male"
+            required> Male
+
+        <input
+            type="radio"
+            name="studentGender"
+            ng-model="student.gender"
+            value="Female"> Female
+
+        <input
+            type="radio"
+            name="studentGender"
+            ng-model="student.gender"
+            value="Other"> Other
+
+        <br><br>
+
+        <label>Student Address:</label>
+
+        <br>
+
+        <textarea
+            name="studentAddress"
+            ng-model="student.address"
+            required>
+        </textarea>
+
+        <br><br>
+
+        <button>Register Student</button>
+
+    </form>
+
+    <hr>
+
+    <h2>Form Status</h2>
+
+    <p>Valid : {{studentForm.$valid}}</p>
+
+    <p>Invalid : {{studentForm.$invalid}}</p>
+
+    <p>Pristine : {{studentForm.$pristine}}</p>
+
+    <p>Dirty : {{studentForm.$dirty}}</p>
+
+<p ng-show="studentForm.studentForm.$touched $$ studentForm.studentForm.$invalid" style="color: red;">
+Student name is required
+</p>
 
 </body>
 
