@@ -43,7 +43,9 @@
     <hr>
 
     <h2>Student List</h2>
-    <button ng-click="showstudent = !showstudent">Student List</button>
+    <button ng-click="showstudent = !showstudent">
+        Student List
+    </button>
 
     <ul ng-show="showstudent">
         <li ng-repeat="student in students">
@@ -56,82 +58,116 @@
     <h2>Filter Demo</h2>
 
     <p>Uppercase: {{collegename | uppercase}}</p>
-
     <p>Lowercase: {{collegename | lowercase}}</p>
-
     <p>Currency: {{fees | currency}}</p>
-
     <p>Date: {{today | date:'dd/MM/yyyy'}}</p>
-
     <p>Number: {{fees | number:2}}</p>
 
     <hr>
-    <h2>Selected Departments</h>
-     <label >Select Departments:</label>   
-     <br><br>
-     <select ng-model="selectedDepartment" ng-options="department for department in departments">
+
+    <h2>Selected Departments</h2>
+
+    <label>Select Department:</label>
+    <br><br>
+
+    <select ng-model="selectedDepartment"
+            ng-options="department for department in departments">
         <option value="">-- Select Department --</option>
     </select>
 
-   <p>Selected Department: <b>{{selectedDepartment}}</b></>
+    <p>Selected Department:
+        <b>{{selectedDepartment}}</b>
+    </p>
+
+    <hr>
+
+    <h2>Department Information</h2>
+
+    <label>Select Department:</label>
+    <br><br>
+
+    <select ng-model="selectedDepartment">
+        <option value="">-- Select Department --</option>
+        <option ng-repeat="department in departments" value="{{department}}">
+            {{department}}
+        </option>
+    </select>
+
+    <p><b>Selected Department:</b> {{selectedDepartment}}</p>
+
+    <hr>
+
+    <div ng-switch="selectedDepartment">
+
+        <div ng-switch-when="CSE">
+            <p>Computer Science and Engineering</p>
+        </div>
+
+        <div ng-switch-when="ECE">
+            <p>Electronics and Communication Engineering</p>
+        </div>
+
+        <div ng-switch-when="EEE">
+            <p>Electrical and Electronics Engineering</p>
+        </div>
+
+        <div ng-switch-when="MECH">
+            <p>Mechanical Engineering</p>
+        </div>
+
+        <div ng-switch-when="CIVIL">
+            <p>Civil Engineering</p>
+        </div>
+
+        <div ng-switch-when="MCA">
+            <p>Master of Computer Applications</p>
+        </div>
+
+        <div ng-switch-default>
+            <p>Please select a department.</p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <h2>ng-init Demo</h2>
+
+    <div ng-init="collegecode='fisat123'; location='Angamaly'">
+        <p>College Code: {{collegecode}}</p>
+        <p>Location: {{location}}</p>
+    </div>
+
+    <hr>
+
+    <h2>ng-disabled Demo</h2>
+
+    <button ng-click="allowAdmission()">
+        Enable Admission
+    </button>
+
+    <br><br>
+
+    <button ng-disabled="isDisabled">
+        Take Admission
+    </button>
 
 <hr>
 
-<h2>Department Information</h2>
+    <h2>ng-readonly Demo</h2>
 
-<label>Select Department:</label>
-<br><br>
+   <label>college id</label>
+   <br><br>
 
-<select ng-model="selectedDepartment">
-    <option value="">-- Select Department --</option>
-    <option ng-repeat="department in departments" value="{{department}}">
-        {{department}}
-    </option>
-</select>
+<input type="text" ng-model="collegeid" ng-readonly="isReadOnly">
+   <br><br>
+   <button ng-click="toggleReadOnly()">
+        Toggle Readonly
+    </button>
+    <p>readonly status: {{isReadOnly}}</p>
 
-<p><b>Selected Department:</b> {{selectedDepartment}}</p>
 
-<hr>
-<div ng-switch="selectedDepartment">
 
-    <div ng-switch-when="CSE">
-        <p>Computer Science and Engineering</p>
-    </div>
-
-    <div ng-switch-when="ECE">
-        <p>Electronics and Communication Engineering</p>
-    </div>
-
-    <div ng-switch-when="EEE">
-        <p>Electrical and Electronics Engineering</p>
-    </div>
-
-    <div ng-switch-when="MECH">
-        <p>Mechanical Engineering</p>
-    </div>
-
-    <div ng-switch-when="CIVIL">
-        <p>Civil Engineering</p>
-    </div>
-
-    <div ng-switch-when="MCA">
-        <p>Master of Computer Applications</p>
-    </div>
-
-    <div ng-switch-default>
-        <p>Please select a department.</p>
-    </div>
-
-</div>
-
-<hr>
-
-<h2 >ng-init Demo</h2>
-
-<div ng-init="collegecode='fisat123'; location='Angamaly'">
-    <p>College Code: {{collegecode}}</p>
-    <p>Location: {{location}}</p>
-</div>
 
 
 

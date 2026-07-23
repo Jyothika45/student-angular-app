@@ -25,4 +25,24 @@ app.controller("dashboardController", function ($scope) {
     $scope.departments = ["CSE", "ECE", "EEE", "MECH", "CIVIL","MCA"];
     $scope.selectedDepartments = ["MCA"];
 
+    $scope.isDisabled=true;
+    $scope.allowAdmission=function(){
+        $scope.isDisabled=false;
+    };
+
+
+$scope.isReadOnly=true;
+$scope.toggleReadOnly=function(){
+    $scope.isReadOnly=!$scope.isReadOnly;
+};
+
+
+
+
+
+
+    $scope.addStudent = function () {
+        $scope.totstud++;
+    };
+
 });
